@@ -25,9 +25,9 @@ public class Quizfenster {
         JButton antwort4 = new JButton();
         JButton exit = new JButton("Beenden");
         JButton next = new JButton("Neue Frage");
-        exit.addActionListener(ActionListener  -> System.exit(0));
+        exit.addActionListener(ActionListener  -> System.exit(0)); //Das Spiel wird sofort beendet
 
-        next.addActionListener(new ActionListener() {
+        next.addActionListener(new ActionListener() { //Die Felder werden solange aktualisiert mit neuen Fragen, bis alle Objekte aus der Liste verwendet wurden.
             @Override
 
             public void actionPerformed(ActionEvent e) {
@@ -37,7 +37,7 @@ public class Quizfenster {
                 {
                     Frage.neueFrage(frage,antwort1,antwort2,antwort3,antwort4,Frage.Fragen.get(o));
                     o++;
-                } else if (Frage.Fragen.isEmpty()) {
+                } else if (Frage.Fragen.isEmpty()) { //Sind keine Fragen verfügbar bzw. ist die Liste leer, wird ein Pop-Up Fenster erstellt und der Anwender darüber informiert.
                     JFrame popup = new JFrame("Hinweis!");
                     popup.setLocationRelativeTo(null);
                     popup.setLayout(new GridLayout(0,1));
@@ -48,7 +48,7 @@ public class Quizfenster {
                     popup.add(info,0);
                     popup.add(close,1);
                     popup.setVisible(true);
-                } else
+                } else // Sind keine Fragen mehr verfügbar ist das Spiel beendet und der Anwender wird darüber in einem Pop-Up Fenster darüber informiert.
                 {
                     JFrame popup = new JFrame("Hinweis!");
                     popup.setLocationRelativeTo(null);
