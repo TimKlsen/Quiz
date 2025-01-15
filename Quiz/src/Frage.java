@@ -14,14 +14,14 @@ public class Frage {
     int richtigeAntwort;
     String[] antworten = new String[4];
     public static List <Frage> Fragen =new ArrayList<>();
-    public Frage(String frage, String[] antworten,int richtigeAntwort)
+    public Frage(String frage, String[] antworten,int richtigeAntwort) //Frage inkl. Antworten und Angabe welche Antwort richtig ist. 
     {
         this.frage=frage;
         this.richtigeAntwort=richtigeAntwort;
         this.antworten=antworten;
     }
 
-    public static boolean getRichtigeAntwort(String frage, int i)
+    public static boolean getRichtigeAntwort(String frage, int i) // Prüft ob die Antwort richtig ist
     {
         boolean antwort = false;
 
@@ -42,7 +42,7 @@ public class Frage {
         return false;
     }
 
-    public static void frageHinzufuegen ()
+    public static void frageHinzufuegen () //Funktion öffnet ein Fenster in dem neue Fragen als Objekt erstellt werden. Erklärung des Objekt siehe Zeile 17
     {
         JFrame frame = new JFrame();
         frame.setLocationRelativeTo(null);
@@ -192,7 +192,7 @@ public class Frage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                Quizfenster quizfenster = new Quizfenster();
+                Quizfenster quizfenster = new Quizfenster(); //Lässt das eigentliche Spiel beginnen
             }
         });
         JButton exit = new JButton("Schließen");
@@ -207,7 +207,7 @@ public class Frage {
     }
 
 
-    public static void neueFrage(JTextArea text, JButton button, JButton button1, JButton button2, JButton button3, Frage frageAntwort)
+    public static void neueFrage(JTextArea text, JButton button, JButton button1, JButton button2, JButton button3, Frage frageAntwort) //Deklariert die Felder (Textarea und Button) im Spiel mit einer neuen Frage (Infos kommen aus dem Objekt).
     {
         text.setText(frageAntwort.frage);
         button.setText(frageAntwort.antworten[0]);
@@ -215,7 +215,7 @@ public class Frage {
         button2.setText(frageAntwort.antworten[2]);
         button3.setText(frageAntwort.antworten[3]);
     }
-    public static void spielStarten ()
+    public static void spielStarten () // Funktion  zum starten des Spiel
     {
         frageHinzufuegen();
     }
